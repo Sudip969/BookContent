@@ -1,31 +1,31 @@
 const service = require('./userService')
-function postService(req)
+const contObj={
+async  postService(req,res)
 {
     console.log("In Controller.js")
-    return service.postRepository(req);
+    const comeBack= await service.postRepository(req);
+    res.send(comeBack);
 
-}
-function selectService(req)
+},
+async selectService(req,res)
 {
     console.log("In Controller.js")
-    return service.selectRepository(req);
-}
+    const comeBack= await service.selectRepository(req);
+    res.send(comeBack);
+},
 
-function deleteService(req)
+async  deleteService(req,res)
 {
     console.log("In Controller.js")
-    return service.deleteRepository(req);
-}
+     await service.deleteRepository(req);
+    res.send("Row deleted");
+},
 
-function updateService(req)
+async  updateService(req,res)
 {
     console.log("In Controller.js")
-    return service.updateRepository(req);
+    await service.updateRepository(req);
+    res.send("Row updated successfully")
+},
 }
-
-module.exports= {
-    postService: postService,
-    selectService: selectService,
-    deleteService: deleteService,
-    updateService: updateService    
-}
+module.exports= contObj;

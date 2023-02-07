@@ -1,27 +1,24 @@
 const repo = require('./userRepository')
-function postRepository(req)
+const serObj={
+ postRepository(req)
 {
     console.log("In Service.js")
     return repo.postApiCollect(req);
-}
-function selectRepository(req)
+},
+ selectRepository(req)
 {
   console.log("In Service.js")
   return repo.selectApiCollect(req);
-}
-function deleteRepository(req)
+},
+ deleteRepository(req)
 {
   console.log("In Service.js")
   return repo.deleteApiCollect(req);
-}
-function updateRepository(req)
+},
+ updateRepository(req)
 {
   console.log("In Service.js")
   return repo.updateApiCollect(req);
+},
 }
-module.exports= {
-  postRepository: postRepository,
-  selectRepository: selectRepository,
-  deleteRepository: deleteRepository,
-  updateRepository: updateRepository
-}
+module.exports= serObj;
