@@ -1,4 +1,4 @@
-const client= require("./dBase")
+const client= require("../../dBase")
 client.connect()
 const repObj={
 async  postApiCollect(req)  //insert

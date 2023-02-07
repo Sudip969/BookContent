@@ -1,6 +1,6 @@
 const express = require('express');     //express require
 const router= express.Router();
-const controller = require('./userController');
+const controller = require('../features/user/userController');
 
 router.post("/insert", controller.postService)
 

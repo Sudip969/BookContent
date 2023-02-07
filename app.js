@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-const router = require('./routes/user/index.js');
+const router = require('./routes/user.js');
 
 app.use(express.json());
 
