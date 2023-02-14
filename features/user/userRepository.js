@@ -2,10 +2,11 @@ const User = require("./userModel.js");
 const repObj = {
   //repo for insert
   async insert(req) {
-    const data = User.build({ name: req.body.name });
-    await data.save(); //Or can use create instead using build and save
-    return data;
-  },
+    if((req.body).length > 1) {
+    return await User.bulkCreate(req.body );
+  }
+  return await User.create(req.body);
+},
   //repo for select
   async select(req) {
     //repo for select without id
@@ -22,15 +23,12 @@ const repObj = {
   },
   //repo for delete
   async delete(req) {
-    const data = await User.findOne({ where: { id: req.params.id } });
-    await data.destroy();
+    await User.destroy({ where: { id: req.params.id } });
     return "Row deleted successfully";
   },
   //repo for update
   async update(req) {
-    const data = await User.findOne({ where: { id: req.params.id } });
-    data.name = req.body.name;
-    data.save();
+    await User.update(req.body,{ where: { id: req.params.id } });
     return "Row updated successfully";
   },
 };
