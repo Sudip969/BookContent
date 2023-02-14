@@ -1,8 +1,8 @@
 const service = require("./userService");
 const contObj = {
   //insert controller
-  async post(req, res) {
-    const comeBack = await service.post(req);
+  async insert(req, res) {
+    const comeBack = await service.insert(req);
     res.send(comeBack);
   },
   //select controller

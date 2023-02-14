@@ -1,13 +1,13 @@
 const User = require("./userModel.js");
 const repObj = {
   //repo for insert
-  async postApiCollect(req) {
+  async insert(req) {
     const data = User.build({ name: req.body.name });
     await data.save(); //Or can use create instead using build and save
     return data;
   },
   //repo for select
-  async selectApiCollect(req) {
+  async select(req) {
     //repo for select without id
     if (!req.params.id) {
       const data = await User.findAll();
@@ -21,13 +21,13 @@ const repObj = {
     return "No such Id present";
   },
   //repo for delete
-  async deleteApiCollect(req) {
+  async delete(req) {
     const data = await User.findOne({ where: { id: req.params.id } });
     await data.destroy();
     return "Row deleted successfully";
   },
   //repo for update
-  async updateApiCollect(req) {
+  async update(req) {
     const data = await User.findOne({ where: { id: req.params.id } });
     data.name = req.body.name;
     data.save();

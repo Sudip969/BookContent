@@ -1,8 +1,8 @@
 const repo = require("./userRepository");
 const serObj = {
   //Service to Insert
-  async post(req) {
-    return await repo.post(req);
+  async insert(req) {
+    return await repo.insert(req);
   },
   //Service to Select
   async select(req) {

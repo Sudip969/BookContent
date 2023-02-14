@@ -2,7 +2,7 @@ const express = require("express"); //express require
 const router = express.Router();
 const controller = require("../features/user/userController");
 
-router.post("/insert", controller.post);
+router.post("/insert", controller.insert);
 
 router.get("/select", controller.select);
 
