@@ -2,11 +2,11 @@ const User = require("./userModel.js");
 const repObj = {
   //repo for insert
   async insert(req) {
-    if((req.body).length > 1) {
-    return await User.bulkCreate(req.body );
-  }
-  return await User.create(req.body);
-},
+    if (req.body.length > 1) {
+      return await User.bulkCreate(req.body);
+    }
+    return await User.create(req.body);
+  },
   //repo for select
   async select(req) {
     //repo for select without id
@@ -16,6 +16,7 @@ const repObj = {
     }
     //repo for select by id
     const data = await User.findOne({ where: { id: req.params.id } });
+
     if (data) {
       return data;
     }
@@ -28,8 +29,15 @@ const repObj = {
   },
   //repo for update
   async update(req) {
-    await User.update(req.body,{ where: { id: req.params.id } });
-    return "Row updated successfully";
+    const data = await User.findOne({ where: { id: req.params.id } });
+
+    console.log(data);
+    if (data) {
+      console.log("If k andar");
+      await User.update(req.body, { where: { id: req.params.id } });
+      return "Row updated successfully";
+    }
+    return "No such Id present";
   },
 };
 

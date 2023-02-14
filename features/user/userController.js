@@ -12,14 +12,12 @@ const contObj = {
   },
   //delete controller
   async delete(req, res) {
-    await service.delete(req);
-    res.send("Row deleted");
+    res.send(await service.delete(req));
   },
 
   //update controller
   async update(req, res) {
-    await service.update(req);
-    res.send("Row updated successfully");
+    res.send(await service.update(req));
   },
 };
 module.exports = contObj;
