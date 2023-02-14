@@ -30,15 +30,12 @@ const repObj = {
   //repo for update
   async update(req) {
     const data = await User.findOne({ where: { id: req.params.id } });
-
-    console.log(data);
     if (data) {
-      console.log("If k andar");
       await User.update(req.body, { where: { id: req.params.id } });
       return "Row updated successfully";
     }
     return "No such Id present";
-  },
+  }
 };
 
 module.exports = repObj;
