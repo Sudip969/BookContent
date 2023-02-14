@@ -1,15 +1,16 @@
 const service = require("./userService");
 const contObj = {
+
   //insert controller
   async insert(req, res) {
-    const comeBack = await service.insert(req);
-    res.send(comeBack);
+    res.send(await service.insert(req));
   },
+
   //select controller
   async select(req, res) {
-    const comeBack = await service.select(req);
-    res.send(comeBack);
+    res.send(await service.select(req));
   },
+
   //delete controller
   async delete(req, res) {
     res.send(await service.delete(req));

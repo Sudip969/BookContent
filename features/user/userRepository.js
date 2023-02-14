@@ -1,5 +1,6 @@
 const User = require("./userModel.js");
 const repObj = {
+
   //repo for insert
   async insert(req) {
     if (req.body.length > 1) {
@@ -7,6 +8,7 @@ const repObj = {
     }
     return await User.create(req.body);
   },
+
   //repo for select
   async select(req) {
     //repo for select without id
@@ -16,17 +18,18 @@ const repObj = {
     }
     //repo for select by id
     const data = await User.findOne({ where: { id: req.params.id } });
-
     if (data) {
       return data;
     }
     return "No such Id present";
   },
+
   //repo for delete
   async delete(req) {
     await User.destroy({ where: { id: req.params.id } });
     return "Row deleted successfully";
   },
+  
   //repo for update
   async update(req) {
     const data = await User.findOne({ where: { id: req.params.id } });
