@@ -1,14 +1,16 @@
 const express = require("express");
-const app = express();
-
-const user = require("./features/user/userModel.js");
-user.sync();
-
-app.use(express.json());
-
+const User = require("./features/user/userModel.js");
 const router = require("./routes/user.js");
+const bodyParser=require("body-parser");
+const cors=require("cors");
+
+const app = express();
+User.sync();
+
+app.use(bodyParser.json());
+app.use(cors())
 app.use("/", router);
 
-app.listen(3000, () => {
+app.listen(3000,() => {
   console.log("Server is listening ");
 });

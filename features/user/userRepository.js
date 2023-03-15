@@ -12,21 +12,21 @@ const repObj = {
   //repo for select
   async select(req) {
     //repo for select without id
-    if (!req.params.id) {
+    if (!req.params.name) {
       const data = await User.findAll();
       return data;
     }
     //repo for select by id
-    const data = await User.findOne({ where: { id: req.params.id } });
+    const data = await User.findOne({ where: { name: req.params.name } });
     if (data) {
       return data;
     }
-    return "No such Id present";
+    return "No such Data present";
   },
 
   //repo for delete
   async delete(req) {
-    await User.destroy({ where: { id: req.params.id } });
+    await User.destroy({ where: { id: req.params.id} });
     return "Row deleted successfully";
   },
   

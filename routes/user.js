@@ -6,7 +6,7 @@ router.post("/insert", controller.insert);
 
 router.get("/select", controller.select);
 
-router.get("/select/:id", controller.select);
+router.get("/select/:name", controller.select);
 
 router.delete("/delete/:id", controller.delete);
 

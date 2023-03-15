@@ -14,12 +14,24 @@ User.init(                                    //Define the Schema object
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+    }, 
+    phone:{
+      type: DataTypes.STRING,
+      allowNull:false
     },
+    email:{
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+    favourite:{
+      type:DataTypes.BOOLEAN,
+      allowNull:true
+    }
   },
   {
     sequelize,
     modelName: "User",
-    tableName: "bookdata",
+    tableName: "contactBook",
   }
 );
 
